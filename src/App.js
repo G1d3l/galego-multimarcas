@@ -61,7 +61,7 @@ function App() {
                 {/* Imagem do produto */}
                 <img src={item.image} alt={item.title} />
                 {/* Nome do produto */}
-                <h4>{item.title}</h4>
+                <h4>{item.title}</h4>++++
                 {/* Preço convertido para reais */}
                 <p className="preco">R$ {(item.price * 5.2).toFixed(2)}</p>
                 {/* Botão de ação (ainda sem funcionalidade real) */}
