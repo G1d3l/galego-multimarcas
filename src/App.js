@@ -5,12 +5,18 @@ function App() {
   const [produtos, setProdutos] = useState([]);
   const [carregando, setCarregando] = useState(true);
 
-  // 🔹 Buscar produtos da Fake Store API
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products?limit=8")
-      .then((res) => res.json())
-      .then((data) => {
-        setProdutos(data);
+    Promise.all([
+      fetch("https://fakestoreapi.com/products/category/men's clothing").then((r) => r.json()),
+      fetch("https://fakestoreapi.com/products/category/women's clothing").then((r) => r.json()),
+    ])
+      .then(([men, women]) => {
+        const dryfit = [...men, ...women].map((item) => ({
+          ...item,
+          title: `Dry Fit ${item.title}`,
+          category: "Roupas Dry Fit",
+        }));
+        setProdutos(dryfit);
         setCarregando(false);
       })
       .catch((err) => console.error("Erro ao buscar produtos:", err));
@@ -18,7 +24,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* Navbar */}
       <header className="navbar">
         <h1>Galego Multimarcas</h1>
         <nav>
@@ -28,7 +33,6 @@ function App() {
         </nav>
       </header>
 
-      {/* Hero */}
       <section className="hero">
         <h2>Roupas Dry Fit com Estilo e Conforto</h2>
         <p>
@@ -40,10 +44,8 @@ function App() {
         </a>
       </section>
 
-      {/* Produtos */}
       <section id="produtos" className="produtos">
         <h3>Nossos Produtos</h3>
-
         {carregando ? (
           <p>Carregando produtos...</p>
         ) : (
@@ -52,9 +54,7 @@ function App() {
               <div key={item.id} className="card">
                 <img src={item.image} alt={item.title} />
                 <h4>{item.title}</h4>
-                <p className="preco">
-                  R$ {(item.price * 5.2).toFixed(2)} {/* converte USD → BRL */}
-                </p>
+                <p className="preco">R$ {(item.price * 5.2).toFixed(2)}</p>
                 <button>Adicionar ao carrinho</button>
               </div>
             ))}
@@ -62,17 +62,15 @@ function App() {
         )}
       </section>
 
-      {/* Sobre */}
       <section id="sobre" className="sobre">
         <h3>Sobre a Galego Multimarcas</h3>
         <p>
-          Somos uma loja especializada em roupas Dry Fit que unem estilo,
-          leveza e durabilidade. Nosso objetivo é oferecer conforto e
-          performance para quem busca qualidade no treino e no dia a dia.
+          Somos especializados em roupas Dry Fit que unem estilo, leveza e
+          durabilidade. Nosso objetivo é oferecer conforto e performance para
+          quem busca qualidade no treino e no dia a dia.
         </p>
       </section>
 
-      {/* Contato */}
       <section id="contato" className="contato">
         <h3>Entre em Contato</h3>
         <p>Quer saber mais ou fazer um pedido? Fale com a gente!</p>
@@ -86,7 +84,6 @@ function App() {
         </a>
       </section>
 
-      {/* Footer */}
       <footer className="footer">
         <p>© 2025 Galego Multimarcas — Todos os direitos reservados.</p>
       </footer>
