@@ -144,7 +144,7 @@ body {
 }
 
 .btn-whats {
-  background: #ff6a00; /* laranja (reaproveitado) */
+  background: #6fff52; /* laranja (reaproveitado) */
   color: #fff;
   padding: 12px 25px;
   border-radius: 25px;
@@ -163,4 +163,21 @@ body {
   color: #fff;
   text-align: center;
   padding: 20px;
+} 
+
+.btn-insta {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 15px;
+  transition: 0.3s;
+}
+
+.btn-insta:hover {
+  filter: brightness(1.1);
 }

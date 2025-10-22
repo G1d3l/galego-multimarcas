@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaInstagram } from "react-icons/fa"; // ícone do Instagram
 import "./App.css";
 
 function App() {
@@ -35,13 +36,8 @@ function App() {
 
       <section className="hero">
         <h2>Roupas Dry Fit com Estilo e Conforto</h2>
-        <p>
-          Vista-se com qualidade e performance. Galego Multimarcas tem o melhor
-          pra você.
-        </p>
-        <a href="#produtos" className="btn">
-          Ver Produtos
-        </a>
+        <p>Vista-se com qualidade e performance. Galego Multimarcas tem o melhor pra você.</p>
+        <a href="#produtos" className="btn">Ver Produtos</a>
       </section>
 
       <section id="produtos" className="produtos">
@@ -65,22 +61,31 @@ function App() {
       <section id="sobre" className="sobre">
         <h3>Sobre a Galego Multimarcas</h3>
         <p>
-          Somos especializados em roupas Dry Fit que unem estilo, leveza e
-          durabilidade. Nosso objetivo é oferecer conforto e performance para
-          quem busca qualidade no treino e no dia a dia.
+          Somos especializados em roupas Dry Fit que unem estilo, leveza e durabilidade. Nosso objetivo é oferecer conforto e performance para quem busca qualidade no treino e no dia a dia.
         </p>
       </section>
 
       <section id="contato" className="contato">
         <h3>Entre em Contato</h3>
         <p>Quer saber mais ou fazer um pedido? Fale com a gente!</p>
+
         <a
-          href="https://wa.me/5599999999999"
+          href="https://wa.me/5579999470841?text=Oi,%20vim%20pelo%20site%20da%20Galego%20Multimarcas!"
           target="_blank"
           rel="noreferrer"
           className="btn-whats"
         >
-          Chamar no WhatsApp
+          💬 Chamar no WhatsApp
+        </a>
+
+        <a
+          href="https://www.instagram.com/_felipegaabriel/"
+          target="_blank"
+          rel="noreferrer"
+          className="btn-insta"
+        >
+          <FaInstagram style={{ marginRight: "8px" }} />
+          Ver no Instagram
         </a>
       </section>
 
